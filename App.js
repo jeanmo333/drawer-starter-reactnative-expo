@@ -12,11 +12,13 @@ import {
   DarkTheme as DarkThemeNavigation,
   DefaultTheme as DefaultThemeNavigation,
 } from "@react-navigation/native";
-import Navigation from "./src/navigation/Navigation";
+import AdminNavigation from "./src/navigation/AdminNavigation";
 import PreferencesContext from "./src/context/PreferencesContext";
+import AuthNavigation from "./src/navigation/AuthNavigation";
 
 export default function App() {
   const [theme, setTheme] = useState("dark");
+  const [user, setUser] = useState(false);
 
   DefaultThemePaper.colors.primary = "#1ae1f2";
   DarkThemePaper.colors.primary = "#1ae1f2";
@@ -48,7 +50,7 @@ export default function App() {
           theme={
             theme === "dark" ? DarkThemeNavigation : DefaultThemeNavigation
           }>
-          <Navigation />
+          {user ? <AdminNavigation /> : <AuthNavigation />}
         </NavigationContainer>
       </PaperProvider>
     </PreferencesContext.Provider>

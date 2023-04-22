@@ -1,7 +1,9 @@
-import { createContext } from 'react';
+/** @format */
+
+import { createContext } from "react";
 
 const PreferencesContext = createContext({
-  theme: '',
+  theme: "",
   toggleTheme: () => {},
 });
 

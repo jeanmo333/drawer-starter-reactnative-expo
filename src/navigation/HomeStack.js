@@ -4,13 +4,11 @@ import React from "react";
 import { Switch, TouchableRipple, Text, IconButton } from "react-native-paper";
 import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
-import Movie from "../screens/Movie";
-import News from "../screens/News";
 import usePreferences from "../hooks/usePreferences";
 
 const Stack = createStackNavigator();
 
-export default function StackNavigation(props) {
+export default function HomeStackNavigation(props) {
   const { navigation } = props;
   const { theme, toggleTheme } = usePreferences();
 
@@ -57,25 +55,6 @@ export default function StackNavigation(props) {
         options={{
           title: "Home",
           headerLeft: () => buttonLeft("home"),
-          headerRight: () => buttonRight(),
-        }}
-      />
-      <Stack.Screen
-        name='movie'
-        component={Movie}
-        options={{
-          title: "",
-          // headerTransparent: true,
-          headerLeft: () => buttonLeft("movie"),
-          headerRight: () => buttonRight(),
-        }}
-      />
-      <Stack.Screen
-        name='news'
-        component={News}
-        options={{
-          title: "Nuevas Películas",
-          headerLeft: () => buttonLeft("news"),
           headerRight: () => buttonRight(),
         }}
       />
