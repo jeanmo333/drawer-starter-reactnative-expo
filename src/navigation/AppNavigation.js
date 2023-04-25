@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import DrawerContent from "./DrawerContent";
 import { IconButton } from "react-native-paper";
@@ -13,6 +13,7 @@ const Drawer = createDrawerNavigator();
 
 export default function AdminNavigation(props) {
   const { theme } = usePreferences();
+  const [user, setUser] = useState("moril");
 
   return (
     <Drawer.Navigator
@@ -51,19 +52,21 @@ export default function AdminNavigation(props) {
         }}
       />
 
-      <Drawer.Screen
-        name='news'
-        component={NewsStack}
-        options={{
-          drawerIcon: () => (
-            <IconButton
-              color={theme === "dark" ? "#fff" : "#000"}
-              icon='movie-outline'
-              style={{ marginRight: -20, marginVertical: -25 }}
-            />
-          ),
-        }}
-      />
+      {user === "moril" && (
+        <Drawer.Screen
+          name='news'
+          component={NewsStack}
+          options={{
+            drawerIcon: () => (
+              <IconButton
+                color={theme === "dark" ? "#fff" : "#000"}
+                icon='movie-outline'
+                style={{ marginRight: -20, marginVertical: -25 }}
+              />
+            ),
+          }}
+        />
+      )}
     </Drawer.Navigator>
   );
 }

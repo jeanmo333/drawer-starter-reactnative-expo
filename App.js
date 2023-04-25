@@ -12,7 +12,7 @@ import {
   DarkTheme as DarkThemeNavigation,
   DefaultTheme as DefaultThemeNavigation,
 } from "@react-navigation/native";
-import AdminNavigation from "./src/navigation/AdminNavigation";
+import AppNavigation from "./src/navigation/AppNavigation";
 import PreferencesContext from "./src/context/PreferencesContext";
 import AuthNavigation from "./src/navigation/AuthNavigation";
 
@@ -50,7 +50,7 @@ export default function App() {
           theme={
             theme === "dark" ? DarkThemeNavigation : DefaultThemeNavigation
           }>
-          {user ? <AdminNavigation /> : <AuthNavigation />}
+          {user ? <AppNavigation /> : <AuthNavigation />}
         </NavigationContainer>
       </PaperProvider>
     </PreferencesContext.Provider>
